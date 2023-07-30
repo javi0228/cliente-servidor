@@ -1,0 +1,53 @@
+<div class="grid grid-cols-1 mt-56 justify-items-center w-full">
+    <div class="text-white text-3xl p-5 text-center w-full md:w-2/3 lg:w-1/2 bg-primary-800 ">
+        Login
+    </div>
+    <!-- Login form -->
+    <div
+        class="shadow-sm shadow-white rounded-b-md bg-white grid grid-cols-1 p-6 justify-items-center w-full md:w-2/3 lg:w-1/2 p-5">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="w-full sm:w-2/3 grid grid-cols-1 gap-6">
+            <!-- Email -->
+            <div>
+                <label for="email" class="text-gray-700">Email</label>
+                <input id="email" name="email" [(ngModel)]="email" #user_email="ngModel" type="email" class="mt-0 block w-full
+                        px-0.5 border-0 border-b-2 border-gray-200 
+                        focus:ring-0 focus:border-secondary-200" required placeholder="" />
+                <span class="text-red-400" *ngIf="user_email.touched && user_email.invalid">Email field is
+                    required.</span>
+
+            </div>
+            <!-- Password -->
+            <div>
+                <label for="password" class="text-gray-700">Password</label>
+                <input id="password" [(ngModel)]="password" #user_password="ngModel" name="password" type="password"
+                    class="mt-0 block w-full
+                        px-0.5 border-0 border-b-2 border-gray-200 
+                        focus:ring-0 focus:border-secondary-200" required placeholder="" />
+                <span class="text-red-400" *ngIf="user_password.touched && user_password.invalid">Password field is
+                    required.</span>
+
+            </div>
+            <!-- Button -->
+            <div class="text-center">
+                <button [disabled]="!loginForm.form.valid" 
+                    class="inline-flex justify-center px-4 py-2 font-semibold leading-6 items-center disabled:bg-gray-300 enabled:cursor-pointer transition-all enabled:hover:bg-secondary-400 enabled:hover:scale-105 bg-secondary text-white text-lg p-3 rounded-full w-1/2 "
+                    type="submit"><svg [ngClass]="!loading?'hidden':''" class="animate-spin mr-2 h-7 w-7 text-white" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    Login
+                </button>
+            </div>
+            <div>
+
+            </div>
+            <div *ngIf="errors">
+                <p class="text-center text-red-400">{{errors}}</p>
+            </div>
+        </form>
+    </div>
+</div>

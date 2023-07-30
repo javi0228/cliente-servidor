@@ -1,0 +1,18 @@
+import { inject } from '@angular/core';
+import {
+  Router,
+} from '@angular/router';
+import { AuthService } from './auth.service';
+
+export const authGuard = () => {
+  const router = inject(Router);
+  const authService = inject(AuthService);
+  
+  if (authService.isLogged()) {
+    return true;
+  }
+
+  // Navigate to the login page 
+  return router.createUrlTree(['/login']);
+};
+

@@ -17,7 +17,8 @@ use App\Http\Controllers\API\PostController;
 
 Route::controller(RegisterController::class)->group(function () {
     Route::post('register', 'register');
-    Route::post('login', 'login');
+    Route::post('login', 'login')->name('login');
+    Route::post('logout', 'logout')->name('logout');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
