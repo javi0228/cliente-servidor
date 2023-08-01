@@ -21,6 +21,4 @@ Route::controller(RegisterController::class)->group(function () {
     Route::post('logout', 'logout')->name('logout');
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('posts', PostController::class);
-});
+Route::resource('posts', PostController::class);
