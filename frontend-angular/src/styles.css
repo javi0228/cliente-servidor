@@ -3,12 +3,59 @@
 @tailwind components;
 @tailwind utilities;
 
-.shadow-primary{
-    @apply shadow-inner shadow-primary-700/60;
+.shadow-primary {
+  @apply shadow-inner shadow-primary-700/60;
 }
 
-@layer base {
-    html {
-      font-family: Proxima Nova, system-ui, sans-serif;
-    }
-  }
+/* Fonts */
+@font-face {
+  font-family: "EIGHT";
+  src: url("assets/fonts/Eight-One.ttf");
+}
+
+
+@font-face {
+  font-family: "NORDICA";
+  src: url("assets/fonts/NordicaRegular.otf");
+}
+
+
+@font-face {
+  font-family: "NORDICA-BLACK";
+  src: url("assets/fonts/NordicaBlack.otf");
+}
+
+
+@font-face {
+  font-family: "NORDICA-THIN";
+  src: url("assets/fonts/NordicaThin.otf");
+}
+
+
+@font-face {
+  font-family: "NORDICA-HAIRLINE";
+  src: url("assets/fonts/NordicaHairline.otf");
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary-300/60;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-300;
+}

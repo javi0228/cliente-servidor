@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent {
         {
           next: (res: any) => {
             let token = res.data.token;
-            let user = res.data.user;
+            let user = res.data.user;          
 
             this.errors = false;
             this.loading = false;

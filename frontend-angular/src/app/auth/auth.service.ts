@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  apiUrl = 'http://localhost:8000/api';
-  options: any;
+  private apiUrl = 'http://localhost:8000/api';
+  private options: any;
 
   /**
    * Constructor
@@ -31,13 +32,13 @@ export class AuthService {
 
   /**
      * Get an access token
-     * @param e The email address
-     * @param p The password string
+     * @param eemail The email address
+     * @param pass The password string
      */
-  login(e: string, p: string): Observable<any> {
-    return this.http.post(this.apiUrl + '/login', {
-      email: e,
-      password: p,
+  login(email: string, pass: string): Observable<HttpEvent<User[]>> {
+    return this.http.post<User[]>(this.apiUrl + '/login', {
+      email: email,
+      password: pass,
       scope: ''
     }, this.options);
   }

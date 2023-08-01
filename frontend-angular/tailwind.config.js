@@ -19,7 +19,13 @@ module.exports = {
         },
       },
     },
-    fontFamily: { body: ["Tahoma"] },
+    fontFamily: { 
+      eight: ["EIGHT"],
+      nordica: ["NORDICA"], 
+      nordicaBlack: ["NORDICA-BLACK"], 
+      nordicaThin: ["NORDICA-THIN"], 
+      nordicaHairline: ["NORDICA-HAIRLINE"], 
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };
