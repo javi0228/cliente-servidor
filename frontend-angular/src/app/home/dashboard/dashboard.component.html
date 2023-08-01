@@ -1,5 +1,5 @@
-<div class="flex sm:flex-row flex-col justify-between text-white h-full">
-    <div class="grow overflow-y-auto flex flex-wrap flex-1 gap-y-4 justify-center p-4">
+<div class="flex sm:flex-row flex-col justify-between text-white min-h-[90vh]">
+    <div class="grow overflow-y-auto flex flex-wrap flex-1 max-h-[70rem] justify-center gap-y-4 sm:p-4 p-2">
         <svg [ngClass]="!loading?'hidden':''" class="animate-spin self-center mr-2 h-16 w-16 text-secondary-400"
             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
@@ -9,9 +9,10 @@
             </path>
         </svg>
         <div [ngClass]="loading?'hidden':'block'">
-            <h3 class="text-[20pt] font-nordica" >Latest posts</h3>
+            <h3 class="text-[20pt] font-nordica">Latest posts</h3>
             <p *ngIf="!posts" class="mt-5">There are no posts</p>
         </div>
+
         <!-- List of posts -->
         <post *ngFor="let post of posts" [post]="post"></post>
     </div>
